@@ -11,6 +11,16 @@ Deploy:
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# Streamlit Cloud runs `chat/app.py` with sys.path[0] == the chat/ directory,
+# which shadows the repo root and breaks `from chat.*` / `from shared.*` imports.
+# Ensure the repo root is importable regardless of how the app is launched.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
 import streamlit as st
 
 from chat.agent import run_agent
