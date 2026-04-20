@@ -1,0 +1,216 @@
+# Single source of truth: region -> indices, sector ETFs, RSS feeds, keywords.
+# Tickers use Yahoo Finance symbols (yfinance).
+
+regions:
+  US:
+    name: United States
+    indices:
+      - symbol: "^GSPC"
+        name: S&P 500
+      - symbol: "^IXIC"
+        name: Nasdaq Composite
+      - symbol: "^DJI"
+        name: Dow Jones Industrial Average
+      - symbol: "^RUT"
+        name: Russell 2000
+      - symbol: "^VIX"
+        name: VIX
+    sector_etfs:
+      - symbol: XLK
+        sector: Technology
+      - symbol: XLF
+        sector: Financials
+      - symbol: XLE
+        sector: Energy
+      - symbol: XLV
+        sector: Healthcare
+      - symbol: XLI
+        sector: Industrials
+      - symbol: XLY
+        sector: Consumer Discretionary
+      - symbol: XLP
+        sector: Consumer Staples
+      - symbol: XLU
+        sector: Utilities
+      - symbol: XLB
+        sector: Materials
+      - symbol: XLRE
+        sector: Real Estate
+      - symbol: XLC
+        sector: Communication Services
+    top_tickers:
+      - AAPL
+      - MSFT
+      - NVDA
+      - AMZN
+      - GOOGL
+      - META
+      - TSLA
+      - BRK-B
+      - JPM
+      - XOM
+    rss:
+      - https://feeds.reuters.com/reuters/businessNews
+      - https://www.sec.gov/news/pressreleases.rss
+      - https://www.federalreserve.gov/feeds/press_all.xml
+      - https://www.whitehouse.gov/feed/
+      - https://home.treasury.gov/news/press-releases/rss.xml
+
+  APAC:
+    name: Asia-Pacific (ex-ASEAN)
+    indices:
+      - symbol: "^N225"
+        name: Nikkei 225
+      - symbol: "^HSI"
+        name: Hang Seng
+      - symbol: "000001.SS"
+        name: Shanghai Composite
+      - symbol: "^KS11"
+        name: KOSPI
+      - symbol: "^TWII"
+        name: Taiwan Weighted
+      - symbol: "^BSESN"
+        name: BSE Sensex
+      - symbol: "^AXJO"
+        name: ASX 200
+    sector_etfs:
+      - symbol: EWJ
+        sector: Japan (broad)
+      - symbol: FXI
+        sector: China Large Cap
+      - symbol: INDA
+        sector: India
+      - symbol: EWY
+        sector: South Korea
+      - symbol: EWT
+        sector: Taiwan
+    top_tickers:
+      - 7203.T   # Toyota
+      - 6758.T   # Sony
+      - 9984.T   # SoftBank
+      - 0700.HK  # Tencent
+      - 9988.HK  # Alibaba
+      - TSM      # TSMC ADR
+      - 005930.KS  # Samsung
+      - RELIANCE.NS
+      - INFY.NS
+    rss:
+      - https://asia.nikkei.com/rss/feed/nar
+      - https://www.scmp.com/rss/91/feed
+      - https://feeds.reuters.com/reuters/APTopNews
+      - https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511
+
+  ASEAN:
+    name: Southeast Asia
+    indices:
+      - symbol: "^STI"
+        name: Straits Times (Singapore)
+      - symbol: "^KLSE"
+        name: FTSE Bursa Malaysia KLCI
+      - symbol: "^SET.BK"
+        name: SET (Thailand)
+      - symbol: "^JKSE"
+        name: Jakarta Composite
+      - symbol: "PSEI.PS"
+        name: PSEi (Philippines)
+      - symbol: "^VNI"
+        name: VN-Index (Vietnam)
+    sector_etfs:
+      - symbol: EWS
+        sector: Singapore
+      - symbol: EIDO
+        sector: Indonesia
+      - symbol: THD
+        sector: Thailand
+      - symbol: EPHE
+        sector: Philippines
+      - symbol: EWM
+        sector: Malaysia
+      - symbol: VNM
+        sector: Vietnam
+    top_tickers:
+      - D05.SI   # DBS
+      - O39.SI   # OCBC
+      - U11.SI   # UOB
+      - Z74.SI   # Singtel
+      - MAYBANK.KL
+      - BBCA.JK  # Bank Central Asia
+      - PTT.BK
+      - SM.PS
+    rss:
+      - https://www.businesstimes.com.sg/rss/top-stories
+      - https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511
+      - https://www.thestar.com.my/rss/business
+      - https://www.bernama.com/en/rss.php?category=business
+      - https://www.bangkokpost.com/rss/data/business.xml
+      - https://www.philstar.com/rss/business
+      - https://jakartaglobe.id/feed/
+
+  GLOBAL:
+    name: Global / cross-region
+    indices:
+      - symbol: "DX-Y.NYB"
+        name: US Dollar Index
+      - symbol: "GC=F"
+        name: Gold
+      - symbol: "CL=F"
+        name: WTI Crude
+      - symbol: "BTC-USD"
+        name: Bitcoin
+      - symbol: "^TNX"
+        name: US 10Y Treasury Yield
+    sector_etfs: []
+    top_tickers: []
+    rss:
+      - https://www.imf.org/en/News/rss
+      - https://www.worldbank.org/en/news/all.atom
+      - https://www.bis.org/rss/home.xml
+
+# Keywords used to classify news into the three digest sections.
+classification:
+  politics_and_regulation:
+    - regulation
+    - regulator
+    - tariff
+    - sanction
+    - central bank
+    - rate decision
+    - election
+    - parliament
+    - prime minister
+    - president
+    - ministry
+    - anti-trust
+    - antitrust
+    - SEC
+    - SFC
+    - MAS
+    - BSP
+    - OJK
+    - RBI
+    - PBOC
+    - BOJ
+    - ECB
+    - Federal Reserve
+    - treasury
+    - policy
+    - bill
+    - law
+  sector_trends:
+    - sector
+    - industry
+    - earnings
+    - guidance
+    - chip
+    - semiconductor
+    - AI
+    - banking
+    - oil
+    - energy
+    - property
+    - real estate
+    - commodities
+    - manufacturing
+    - tech
+    - pharma
+    - biotech
