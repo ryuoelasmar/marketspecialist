@@ -1,0 +1,19 @@
+anthropic>=0.40.0
+yfinance>=0.2.50
+feedparser>=6.0.11
+pyyaml>=6.0.2
+jinja2>=3.1.4
+python-dotenv>=1.0.1
+tenacity>=9.0.0
+pydantic>=2.9.0
+requests>=2.32.0
+
+# Chat app
+streamlit>=1.39.0
+supabase>=2.8.0
+
+# Optional fallback web search
+tavily-python>=0.5.0
+
+# Dev
+pytest>=8.3.0
