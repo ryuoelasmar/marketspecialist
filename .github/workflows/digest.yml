@@ -38,6 +38,8 @@ jobs:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
           FRED_KEY: ${{ secrets.FRED_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           DIGEST_MODEL: ${{ vars.DIGEST_MODEL || 'claude-sonnet-4-6' }}
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then

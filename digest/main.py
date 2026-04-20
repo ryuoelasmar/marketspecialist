@@ -21,6 +21,7 @@ from digest.synthesize import synthesize
 from shared.data.macro import fred_snapshot
 from shared.data.markets import all_quotes, top_movers
 from shared.data.news import fetch_all_rss
+from shared.digest_store import save_digest
 
 
 def _to_dict(obj: Any) -> Any:
@@ -76,6 +77,11 @@ def run(dry_run: bool = False, send_to: str | None = None, hours: int = 48) -> i
         sys.stdout.write("=== TEXT ===\n" + text + "\n\n")
         sys.stdout.write("=== HTML ===\n" + html + "\n")
         return 0
+
+    try:
+        save_digest(digest, subject=subject, html=html, text=text)
+    except Exception as e:
+        print(f"Warning: failed to persist digest to store: {e}", file=sys.stderr)
 
     send_email(subject=subject, html=html, text=text, to=send_to)
     print(f"Sent digest to {send_to or 'configured recipients'}")
